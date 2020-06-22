@@ -1,13 +1,13 @@
 import torch
 import torch.nn as nn
-from transformers.modeling_bert import BERT_PRETRAINED_MODEL_ARCHIVE_MAP, BertPreTrainedModel, BertModel, BertConfig
+from transformers.modeling_bert import BERT_PRETRAINED_MODEL_ARCHIVE_LIST, BertPreTrainedModel, BertModel, BertConfig
 from torchcrf import CRF
 from .module import IntentClassifier, SlotClassifier
 
 
 class JointBERT(BertPreTrainedModel):
     config_class = BertConfig
-    pretrained_model_archive_map = BERT_PRETRAINED_MODEL_ARCHIVE_MAP
+    pretrained_model_archive_map = BERT_PRETRAINED_MODEL_ARCHIVE_LIST
     base_model_prefix = "bert"
 
     def __init__(self, config, args, intent_label_lst, slot_label_lst):
